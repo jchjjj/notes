@@ -1,0 +1,25 @@
+GCC 编译安装
+
+wget https://mirrors.tuna.tsinghua.edu.cn/gnu/gcc/gcc-7.3.0/gcc-7.3.0.tar.gz
+tar -zxf gcc-7.3.0.tar.gz
+cd gcc-7.3.0
+./contrib/download_prerequisites
+mkdir builddir && cd builddir
+../configure
+make && sudo make install
+
+../configure --prefix=/usr --mandir=/usr/share/man --infodir=/usr/share/info --with-bugurl=http://bugzilla.redhat.com/bugzilla --enable-bootstrap --enable-shared --enable-threads=posix --enable-checking=release --with-system-zlib --enable-__cxa_atexit --disable-libunwind-exceptions --enable-gnu-unique-object --enable-linker-build-id --with-linker-hash-style=gnu --enable-languages=c,c++,objc,obj-c++,fortran,ada,go,lto --enable-plugin --enable-initfini-array --disable-libgcj --enable-gnu-indirect-function --with-tune=generic --with-arch_32=x86-64 --build=x86_64-redhat-linux
+
+
+##gdb编译安装
+wget https://mirrors.tuna.tsinghua.edu.cn/gnu/gdb/gdb-8.1.tar.gz
+tar -zxf gdb-8.1.tar.gz
+cd gdb-8.1
+mkdir builddir && cd builddir
+../configure
+make && make install
+需要yum install texinfo，然后再执行make install。
+
+
+#gcc7.3 编译安装后，使用pjproject库的工程在链接的时候会出问题，找不到...符号; 将pjproject源码重新configure/make/make install 之后，问题消失。
+
