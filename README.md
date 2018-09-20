@@ -18,10 +18,10 @@ ni|hao|ma||
 wo|hen|hao
 
 ### code example
-```
+```c
 #include <iostream>
 int main(){
-
+    return 0;
 }
 ```
 
